@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manage Easy</title>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link  href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet">
     <link href="css/pages/dashboard.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 <div class="navbar navbar-fixed-top">
@@ -47,17 +49,21 @@
 
    @RenderBody()
 
-
-
   <script src="lib/npmlibs/es6-shim/es6-shim.js"></script>
   <script src="lib/npmlibs/es6-promise/es6-promise.js"></script>
   <script src="lib/npmlibs/systemjs/system-polyfills.src.js"></script>
-  <!--<script src="lib/npmlibs/@angular/angular2-polyfills.js"></script>-->
   <script src="lib/npmlibs/systemjs/system.src.js"></script>
   <script src="lib/npmlibs/rxjs/Rx.js"></script>
-  <script src="lib/npmlibs/@angular/index.js"></script>
-  <script src="lib/npmlibs/@angular/router/index.js"></script>
-  <script src="lib/npmlibs/@angular/http/index.js"></script>
+  <script src="lib/npmlibs/zonejs/zone.js"></script>
+
+  <script src="lib/npmlibs/@@angular/core/bundles/core.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/common/bundles/common.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/compiler/bundles/compiler.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/platform-browser/bundles/platform-browser.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/http/bundles/http.umd.js"></script>
+  <script src="lib/npmlibs/@@angular/router/bundles/router.umd.js"></script>
+
   <script src="lib/jquery/dist/jquery.js"></script>
   <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 

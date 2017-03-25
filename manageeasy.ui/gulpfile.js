@@ -32,6 +32,11 @@ gulp.task("copy-deps:es6-shim", function () {
          .pipe(gulp.dest(paths.npmLibs + '/es6-shim/'));
 });
 
+gulp.task("copy-deps:zonejs", function () {
+    return gulp.src(paths.npmSrc + '/zone.js/dist/**/*.*', { base: paths.npmSrc + '/zone.js/dist/' })
+         .pipe(gulp.dest(paths.npmLibs + '/zonejs/'));
+});
+
 gulp.task("copy-deps:es6-promise", function () {
     return gulp.src(paths.npmSrc + '/es6-promise/dist/**/*.*', { base: paths.npmSrc + '/es6-promise/dist/' })
          .pipe(gulp.dest(paths.npmLibs + '/es6-promise/'));
@@ -42,7 +47,7 @@ gulp.task("copy-deps:rxjs", function () {
          .pipe(gulp.dest(paths.npmLibs + '/rxjs/'));
 });
 
-gulp.task("copy-deps", ["copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise']);
+gulp.task("copy-deps", ["copy-deps:zonejs","copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise']);
 
 gulp.task("tsCompilation", function(){
  return tsProject.src()
