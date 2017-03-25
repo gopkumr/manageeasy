@@ -7,14 +7,20 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 
 var gulp = require('gulp');
-gulp.task('default', function () {
-    // place code for your default task here
-});
+var gulp = require("gulp");
+var ts = require("gulp-typescript");
+var tsProject = ts.createProject("tsconfig.json");
 
 var paths = {};
 paths.webroot = "wwwroot/";
 paths.npmSrc = "./node_modules/";
 paths.npmLibs = paths.webroot + "lib/npmlibs/";
+
+gulp.task('default', function () {
+    return tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(gulp.dest("app"));
+});
 
 gulp.task("copy-deps:systemjs", function () {
     return gulp.src(paths.npmSrc + '/systemjs/dist/**/*.*', { base: paths.npmSrc + '/systemjs/dist/' })
@@ -22,8 +28,8 @@ gulp.task("copy-deps:systemjs", function () {
 });
 
 gulp.task("copy-deps:angular2", function () {
-    return gulp.src(paths.npmSrc + '/angular2/bundles/**/*.js', { base: paths.npmSrc + '/angular2/bundles/' })
-         .pipe(gulp.dest(paths.npmLibs + '/angular2/'));
+    return gulp.src(paths.npmSrc + '/@angular/**/*.js', { base: paths.npmSrc + '/@angular/' })
+         .pipe(gulp.dest(paths.npmLibs + '/@angular/'));
 });
 
 gulp.task("copy-deps:es6-shim", function () {

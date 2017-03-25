@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="manageeasy.ui.db" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-  
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore" Version="1.0.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.2" />
@@ -22,4 +18,15 @@
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.0-msbuild3-final" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0-msbuild3-final" />
   </ItemGroup>
+
+  <PropertyGroup>
+    <CompileDependsOn>
+      $(CompileDependsOn);
+      GulpBuild;
+    </CompileDependsOn>
+  </PropertyGroup>
+  <Target Name="GulpBuild" DependsOnTargets="CompileTypeScript">
+    <Exec Command="npm install" />
+    <Exec Command="gulp" />
+  </Target>
 </Project>
