@@ -7,7 +7,6 @@ Click here to learn more. http://go.microsoft.com/fwlink/?LinkId=518007
 */
 
 var gulp = require('gulp');
-var gulp = require("gulp");
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("tsconfig.json");
 
@@ -16,11 +15,7 @@ paths.webroot = "wwwroot/";
 paths.npmSrc = "./node_modules/";
 paths.npmLibs = paths.webroot + "lib/npmlibs/";
 
-gulp.task('default', function () {
-    return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(gulp.dest("app"));
-});
+
 
 gulp.task("copy-deps:systemjs", function () {
     return gulp.src(paths.npmSrc + '/systemjs/dist/**/*.*', { base: paths.npmSrc + '/systemjs/dist/' })
@@ -48,3 +43,12 @@ gulp.task("copy-deps:rxjs", function () {
 });
 
 gulp.task("copy-deps", ["copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise']);
+
+gulp.task("tsCompilation", function(){
+ return tsProject.src()
+        .pipe(tsProject())
+        .js.pipe(gulp.dest("app"));
+
+});
+
+gulp.task('default', ["tsCompilation", "copy-deps"]);

@@ -11,6 +11,13 @@
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
+        },
+        {
+          "taskName": "gulpTask",
+          "command": "gulp" ,
+	      "isShellCommand": true,
+	      "args": ["--no-color", "-b ${workspaceRoot}"],
+	      "showOutput": "always"
         }
     ]
 }
