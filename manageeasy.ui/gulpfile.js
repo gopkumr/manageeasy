@@ -50,10 +50,10 @@ gulp.task("copy-deps:rxjs", function () {
 gulp.task("copy-deps", ["copy-deps:zonejs","copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise']);
 
 gulp.task("tsCompilation", function(){
- return tsProject.src()
-        .pipe(tsProject())
-        .js.pipe(gulp.dest("app"));
-
+ return gulp.src('src/**/*')
+            .tsProject.src()
+            .pipe(tsProject())
+            .js.pipe(gulp.dest(paths.webroot+'src/'));
 });
 
 gulp.task('default', ["tsCompilation", "copy-deps"]);
