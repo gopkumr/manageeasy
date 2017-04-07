@@ -67,17 +67,7 @@
   <script src="lib/jquery/dist/jquery.js"></script>
   <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
 
-  <script>
-    System.config({
-        packages: {
-            'app': { defaultExtension: 'js' },
-            'lib': { defaultExtension: 'js' },
-        }
-    });
+  <script src="system.config.js" lang="javascript"></script>
 
-    System.import('app/boot')
-        .then(null, console.error.bind(console));
-
-</script>
  </body>
 </html>

@@ -42,12 +42,18 @@ gulp.task("copy-deps:es6-promise", function () {
          .pipe(gulp.dest(paths.npmLibs + '/es6-promise/'));
 });
 
+gulp.task("copy-dep:system-config", function(){
+return gulp.src("system.config.js")
+            .pipe(gulp.dest(paths.webroot));
+
+});
+
 gulp.task("copy-deps:rxjs", function () {
     return gulp.src(paths.npmSrc + '/rxjs/bundles/*.*', { base: paths.npmSrc + '/rxjs/bundles/' })
          .pipe(gulp.dest(paths.npmLibs + '/rxjs/'));
 });
 
-gulp.task("copy-deps", ["copy-deps:zonejs","copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise']);
+gulp.task("copy-deps", ["copy-deps:zonejs","copy-deps:rxjs", 'copy-deps:angular2', 'copy-deps:systemjs', 'copy-deps:es6-shim', 'copy-deps:es6-promise', 'copy-dep:system-config']);
 
 gulp.task("tsCompilation", function(){
     return gulp.src('src/**/*.ts')
