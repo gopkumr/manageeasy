@@ -6,18 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var AppModule = (function () {
-    function AppModule() {
+var AppComponent = (function () {
+    function AppComponent() {
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
-        })
-    ], AppModule);
-    return AppModule;
+    AppComponent = __decorate([
+        core_1.Component({ selector: 'manageeasy-App', template: '<h1>Manage Easy</h1>' })
+    ], AppComponent);
+    return AppComponent;
 }());
-exports.AppModule = AppModule;
+exports.AppComponent = AppComponent;

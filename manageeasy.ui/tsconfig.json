@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "noImplicitAny": true,
-    "outDir": "/wwwroot/src/",
+    "outDir": "wwwroot/src/",
     "removeComments": false,
     "sourceMap": true,
     "target": "es5"
