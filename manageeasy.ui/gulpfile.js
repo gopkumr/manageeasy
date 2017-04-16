@@ -49,7 +49,7 @@ return gulp.src("system.config.js")
 });
 
 gulp.task("copy-deps:rxjs", function () {
-    return gulp.src(paths.npmSrc + '/rxjs/bundles/*.*', { base: paths.npmSrc + '/rxjs/bundles/' })
+    return gulp.src(paths.npmSrc + '/rxjs/**/*.js')
          .pipe(gulp.dest(paths.npmLibs + '/rxjs/'));
 });
 

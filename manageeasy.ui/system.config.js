@@ -1,43 +1,38 @@
 (function (global) {
-    System.config({
-        paths: {
-            // paths serve as alias
-            'npm:': 'node_modules/'
-        },
-
         // map tells the System loader where to look for things
-        map: {
+       var map= {
             // our app is within the app folder
-            app: 'src/app',
+            'app': 'src/app',
 
             // angular bundles
-            '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
-            '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
-            '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
-            '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
-            '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-            '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
-            '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
-            '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
+            '@angular/core': 'lib/npmlibs/@angular/core/bundles/core.umd.js',
+            '@angular/common': 'lib/npmlibs/@angular/common/bundles/common.umd.js',
+            '@angular/compiler': 'lib/npmlibs/@angular/compiler/bundles/compiler.umd.js',
+            '@angular/platform-browser': 'lib/npmlibs/@angular/platform-browser/bundles/platform-browser.umd.js',
+            '@angular/platform-browser-dynamic': 'lib/npmlibs/@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
+            '@angular/http': 'lib/npmlibs/@angular/http/bundles/http.umd.js',
+            '@angular/router': 'lib/npmlibs/@angular/router/bundles/router.umd.js',
+            '@angular/forms': 'lib/npmlibs/@angular/forms/bundles/forms.umd.js',
             // other libraries
-            'rxjs': 'npm:rxjs',
-        },
+            'rxjs': 'lib/npmlibs/rxjs',
+        };
 
-        // meta: {
-        //     './app/bundle.js': {
-        //         format: 'global'
-        //     }
-        // },
 
         // packages tells the System loader how to load when no filename and/or no extension
-        packages: {
+       var packages={
             app: {
-                main: '/main.js',
+                main: './main.js',
                 defaultExtension: 'js'
             },
             rxjs: {
                 defaultExtension: 'js'
             }
+       };
+
+        var config = {
+            map: map,
+            packages: packages
         }
-    });
+        
+    System.config(config);
 })(this);
